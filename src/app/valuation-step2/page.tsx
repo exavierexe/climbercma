@@ -56,24 +56,6 @@ export default function ValuationStep2() {
         >
           Continue
         </button>
-        <div className="flex items-center gap-2 mt-4">
-          <span className="border-b w-full" />
-          <span className="text-gray-400">or</span>
-          <span className="border-b w-full" />
-        </div>
-        <button
-          type="button"
-          className="bg-white border border-gray-300 rounded px-4 py-2 font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition"
-        >
-          <Image src="/google.svg" alt="Google" width={20} height={20} className="w-5 h-5" />
-          Continue with Google
-        </button>
-        <button
-          type="button"
-          className="bg-white border border-gray-300 rounded px-4 py-2 font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition"
-        >
-          <Image src="/Climber-property-logo-orange.png" alt="Climber Property Logo" width={96} height={36} className="mx-auto mb-4 w-24 h-auto" priority />Facebook
-        </button>
       </form>
     </div>
   );

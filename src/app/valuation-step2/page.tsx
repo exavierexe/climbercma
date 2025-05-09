@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function ValuationStep2() {
   const router = useRouter();
@@ -85,11 +86,9 @@ export default function ValuationStep2() {
           type="button"
           className="bg-white border border-gray-300 rounded px-4 py-2 font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition"
         >
-          <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
-          Continue with Facebook
+          <Image src="/Climber-property-logo-orange.png" alt="Climber Property Logo" width={96} height={36} className="mx-auto mb-4 w-24 h-auto" priority />Facebook
         </button>
       </form>
     </div>
   );
 }
-

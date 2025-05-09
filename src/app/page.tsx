@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-white p-8 gap-8 font-sans">
       <main className="flex flex-col gap-8 items-center w-full max-w-xl bg-white shadow-lg rounded-lg p-8">
-        <img src="/climber-logo.png" alt="Climber Property Logo" className="mb-4 w-32 h-auto" />
+        <Image src="/Climber-property-logo-orange.png" alt="Climber Property Logo" width={128} height={48} className="mb-4 w-32 h-auto" priority />
         <h1 className="text-3xl font-bold text-center text-blue-900">FREE Instant AI-Powered CMA</h1>
         <p className="text-center text-gray-700 mb-2">Get Your Comprehensive Property Valuation Report <b>(No Registration!)</b></p>
         <form className="flex flex-col gap-4 w-full" onSubmit={handleConfirm}>
@@ -118,7 +119,7 @@ export default function Home() {
           </button>
         </form>
         <div className="text-sm text-gray-500 mt-2 text-center">
-          Click 'Get Estimate' to verify the address and proceed.
+          Click &apos;Get Estimate&apos; to verify the address and proceed.
         </div>
         {status === "error" && (
           <div className="text-red-600 font-medium mt-2">{error}</div>

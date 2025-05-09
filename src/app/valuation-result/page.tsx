@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function ValuationResult() {
@@ -53,7 +54,7 @@ export default function ValuationResult() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gradient-to-br from-blue-50 to-white">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full text-center">
-        <img src="/climber-logo.png" alt="Climber Property Logo" className="mx-auto mb-4 w-24 h-auto" />
+        <Image src="/Climber-property-logo-orange.png" alt="Climber Property Logo" width={96} height={36} className="mx-auto mb-4 w-24 h-auto" priority />
         <h1 className="text-2xl font-bold mb-2 text-blue-900">Your Property Valuation</h1>
         <div className="mb-4">
           <span className="block text-gray-600 mb-1">Confirmed Address:</span>

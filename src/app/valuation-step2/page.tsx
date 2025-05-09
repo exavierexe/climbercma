@@ -1,36 +1,20 @@
 "use client";
-export const dynamic = "force-dynamic";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import React, { Suspense } from "react";
 
-function ValuationStep2Inner() {
+export default function ValuationStep2() {
   const router = useRouter();
-  const params = useSearchParams();
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [postcode, setPostcode] = useState("");
 
   useEffect(() => {
-    // Try to get address and postcode from URL param or sessionStorage (for direct navigation)
-    const paramAddress = params.get("address");
-    const paramPostcode = params.get("postcode");
-    if (paramAddress) {
-      setAddress(paramAddress);
-      sessionStorage.setItem("cma_address", paramAddress);
-    } else {
-      const stored = sessionStorage.getItem("cma_address");
-      if (stored) setAddress(stored);
-    }
-    if (paramPostcode) {
-      setPostcode(paramPostcode);
-      sessionStorage.setItem("cma_postcode", paramPostcode);
-    } else {
-      const storedPost = sessionStorage.getItem("cma_postcode");
-      if (storedPost) setPostcode(storedPost);
-    }
-  }, [params]);
+    const stored = sessionStorage.getItem("cma_address");
+    if (stored) setAddress(stored);
+    const storedPost = sessionStorage.getItem("cma_postcode");
+    if (storedPost) setPostcode(storedPost);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,7 +65,7 @@ function ValuationStep2Inner() {
           type="button"
           className="bg-white border border-gray-300 rounded px-4 py-2 font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition"
         >
-          <img src="/google.svg" alt="Google" className="w-5 h-5" />
+          <Image src="/google.svg" alt="Google" width={20} height={20} className="w-5 h-5" />
           Continue with Google
         </button>
         <button

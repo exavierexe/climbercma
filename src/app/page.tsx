@@ -10,7 +10,8 @@ export default function Home() {
   const [error, setError] = useState("");
   const [confirmedAddress, setConfirmedAddress] = useState("");
   const [confirmedPostcode, setConfirmedPostcode] = useState("");
-  const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
+  type LinzSuggestion = { properties: { full_address?: string; address?: string; postcode?: string } };
+const [addressSuggestions, setAddressSuggestions] = useState<LinzSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [fetchingSuggestions, setFetchingSuggestions] = useState(false);
   const router = useRouter();

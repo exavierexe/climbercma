@@ -1,19 +1,25 @@
 "use client";
 export const dynamic = "force-dynamic";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function ValuationResult() {
   const router = useRouter();
-  const params = useSearchParams();
-  const address = params.get("address") || (typeof window !== "undefined" ? sessionStorage.getItem("cma_address") : "");
-  const postcode = params.get("postcode") || (typeof window !== "undefined" ? sessionStorage.getItem("cma_postcode") : "");
-  const [median, setMedian] = React.useState<string | null>(null);
-  const [loading, setLoading] = React.useState(true);
-  const [medianError, setMedianError] = React.useState("");
+  const [address, setAddress] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [median, setMedian] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [medianError, setMedianError] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const storedAddress = sessionStorage.getItem("cma_address");
+    const storedPostcode = sessionStorage.getItem("cma_postcode");
+    if (storedAddress) setAddress(storedAddress);
+    if (storedPostcode) setPostcode(storedPostcode);
+  }, []);
+
+  useEffect(() => {
     if (postcode) {
       setLoading(true);
       fetch(`/api/stats-nz-median-prices?postcode=${postcode}`)

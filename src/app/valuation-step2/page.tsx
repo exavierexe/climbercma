@@ -29,7 +29,7 @@ export default function ValuationStep2() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8 bg-orange-50">
       <h1 className="text-2xl font-bold mb-4">Sign In to View Your Valuation</h1>
       <div className="mb-4 text-gray-700 text-center">
         <span className="font-semibold">Confirmed Address:</span><br />
@@ -44,7 +44,7 @@ export default function ValuationStep2() {
           id="email"
           name="email"
           placeholder="you@example.com"
-          className="border rounded px-3 py-2 w-full"
+          className="border rounded px-3 py-2 w-full text-black"
           required
           value={email}
           onChange={e => setEmail(e.target.value)}

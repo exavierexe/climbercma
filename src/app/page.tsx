@@ -51,7 +51,7 @@ const [addressSuggestions, setAddressSuggestions] = useState<LinzSuggestion[]>([
             <input
               id="address"
               type="text"
-              className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 w-full"
+              className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 w-full text-black"
               placeholder="e.g., 123 Main Street, Auckland"
               value={address}
               onChange={async (e) => {
@@ -103,7 +103,7 @@ const [addressSuggestions, setAddressSuggestions] = useState<LinzSuggestion[]>([
           <input
             id="postcode"
             type="text"
-            className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500"
+            className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 text-black"
             placeholder="e.g., 1010"
             value={postcode}
             onChange={e => setPostcode(e.target.value.replace(/[^0-9]/g, ""))}

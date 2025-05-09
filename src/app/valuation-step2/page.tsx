@@ -1,9 +1,11 @@
 "use client";
+export const dynamic = "force-dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import React, { Suspense } from "react";
 
-export default function ValuationStep2() {
+function ValuationStep2Inner() {
   const router = useRouter();
   const params = useSearchParams();
   const [email, setEmail] = useState("");

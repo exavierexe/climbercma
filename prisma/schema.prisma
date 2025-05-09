@@ -1,0 +1,16 @@
+// Prisma schema for NZ property data
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PostcodeMedianPrice {
+  id       Int    @id @default(autoincrement())
+  postcode String @unique
+  median   Int
+}

@@ -48,7 +48,7 @@ export default function ValuationResult() {
           <h1 className="text-2xl font-bold mb-4 text-blue-900">Missing Information</h1>
           <p className="mb-6 text-gray-600">Please return to the home page and enter your property address and postcode to get a valuation.</p>
           <button
-            className="bg-[var(--primary)] text-white px-4 py-2 rounded font-semibold hover:bg-[var(--primary-dark)] transition"
+            className="bg-orange-500 text-white px-4 py-2 rounded font-semibold hover:bg-orange-600 transition"
             onClick={() => router.push("/")}
           >
             Back to Home

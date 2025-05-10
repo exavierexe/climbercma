@@ -39,7 +39,7 @@ const listings = [
 
 export default function ListingsPage() {
   return (
-    <div className="min-h-screen bg-orange-50 py-16 px-2 font-sans">
+    <main className="min-h-screen bg-orange-50 pt-28 pb-16 px-4 font-sans">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-extrabold text-orange-700 mb-10 text-center">Properties for Sale</h1>
         <div className="grid md:grid-cols-3 gap-8">
@@ -62,6 +62,6 @@ export default function ListingsPage() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

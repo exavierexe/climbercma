@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     if (!email || !address || !postcode) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 });
     }
-    const cma = await prisma.cmaRequest.create({
+    const cma = await prisma.cMARequest.create({
       data: { email, address, postcode },
     });
     return NextResponse.json({ success: true, cma });

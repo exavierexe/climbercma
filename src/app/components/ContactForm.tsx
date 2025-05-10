@@ -89,7 +89,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full border border-orange-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-400 outline-none resize-none"
+          className="w-full border border-orange-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-400 outline-none resize-none text-black"
           value={form.message}
           onChange={handleChange}
         />

@@ -23,3 +23,11 @@ model ContactSubmission {
   message   String
   createdAt DateTime @default(now())
 }
+
+model CMARequest {
+  id        Int      @id @default(autoincrement())
+  email     String
+  address   String
+  postcode  String
+  createdAt DateTime @default(now())
+}

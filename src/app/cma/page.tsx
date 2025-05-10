@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function CMAHome() {
+  const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [postcode, setPostcode] = useState("");
   const [status, setStatus] = useState<"idle"|"loading"|"error"|"confirmed">("idle");
@@ -14,22 +15,31 @@ export default function CMAHome() {
     e.preventDefault();
     setStatus("loading");
     setError("");
-    setTimeout(() => {
-      if (!address || address.length < 5) {
+    if (!email || !address || address.length < 5 || !postcode || postcode.length < 3) {
+      setStatus("error");
+      setError("Please enter a valid email, address, and postcode.");
+      return;
+    }
+    try {
+      const res = await fetch("/api/cma", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, address, postcode }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
         setStatus("error");
-        setError("Invalid address. Please enter a valid address.");
-      } else if (!postcode || postcode.length < 3) {
-        setStatus("error");
-        setError("Please enter a valid NZ postcode.");
+        setError(data.error || "Submission failed. Please try again.");
       } else {
         setStatus("confirmed");
-        
-        sessionStorage.setItem("cma_address", address);
-        sessionStorage.setItem("cma_postcode", postcode);
         setTimeout(() => router.push("/valuation-step2"), 1200);
       }
-    }, 1200);
+    } catch {
+      setStatus("error");
+      setError("Submission failed. Please try again.");
+    }
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-white p-8 gap-8 font-sans">
@@ -37,7 +47,22 @@ export default function CMAHome() {
         <Image src="/Climber-property-logo-orange.png" alt="Climber Property Logo" width={128} height={48} className="mb-4 w-32 h-auto" priority />
         <h1 className="text-3xl font-bold text-center text-blue-900">FREE Instant AI-Powered CMA</h1>
         <p className="text-center text-gray-700 mb-2">Get Your Comprehensive Property Valuation Report <b>(No Registration!)</b></p>
+        {status === "confirmed" ? (
+          <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center text-green-700 font-semibold">
+            Thank you for your request! We’ll send your CMA report soon.
+          </div>
+        ) : (
         <form className="flex flex-col gap-4 w-full" onSubmit={handleConfirm}>
+          <label htmlFor="email" className="font-semibold text-gray-800">Your Email</label>
+          <input
+            id="email"
+            type="email"
+            className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 w-full text-black"
+            placeholder="you@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
           <label htmlFor="address" className="font-semibold text-gray-800">Address for Valuation</label>
           <div className="relative">
             <input
@@ -75,6 +100,7 @@ export default function CMAHome() {
             {status === "loading" ? "Checking..." : "Continue"}
           </button>
         </form>
+        )}
       </main>
     </div>
   );

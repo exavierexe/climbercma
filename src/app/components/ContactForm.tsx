@@ -27,7 +27,7 @@ export default function ContactForm() {
       } else {
         setSubmitted(true);
       }
-    } catch (err) {
+    } catch {
       setError("Submission failed. Please try again.");
     } finally {
       setLoading(false);

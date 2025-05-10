@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
       data: { name, email, phone, message },
     });
     return NextResponse.json({ success: true, submission });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to save submission.' }, { status: 500 });
   }
 }

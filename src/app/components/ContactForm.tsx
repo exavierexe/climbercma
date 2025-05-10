@@ -15,12 +15,25 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    // For now, just fake a submission
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Submission failed. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      setError("Submission failed. Please try again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1000);
+    }
   };
+
 
   if (submitted) {
     return (

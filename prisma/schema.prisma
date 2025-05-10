@@ -14,3 +14,12 @@ model PostcodeMedianPrice {
   postcode String @unique
   median   Int
 }
+
+model ContactSubmission {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  message   String
+  createdAt DateTime @default(now())
+}

@@ -90,7 +90,7 @@ export default function ValuationResult() {
           <p className="text-gray-500 text-sm">This is an instant estimate. For a full CMA or to speak with an agent, contact Climber Property.</p>
         </div>
         <button
-          className="mt-6 bg-[var(--primary-light)] text-[var(--primary-dark)] px-4 py-2 rounded font-semibold hover:bg-[var(--primary)] hover:text-white transition"
+          className="bg-orange-500 text-white px-4 py-2 rounded font-semibold hover:bg-orange-600 transition"
           onClick={() => router.push("/")}
         >
           Back to Home

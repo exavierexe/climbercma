@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import PropertyEnquiryModal from "../../components/PropertyEnquiryModal";
+import Link from "next/link";
 
 // Dummy data (should be replaced with real data or fetched from an API/database)
 const listings = [
@@ -70,7 +71,7 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
     <div className="min-h-screen bg-orange-50 py-16 px-2 font-sans">
       <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
         <div className="p-6">
-          <a href="/listings" className="text-orange-600 hover:underline font-semibold text-sm">&larr; Back to Listings</a>
+          <Link href="/listings" className="text-orange-600 hover:underline font-semibold text-sm">&larr; Back to Listings</Link>
         </div>
         <div className="relative w-full h-80 md:h-[28rem]">
           <Image src={listing.image} alt={listing.title} fill className="object-cover" />

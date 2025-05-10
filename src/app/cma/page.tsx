@@ -8,12 +8,6 @@ export default function CMAHome() {
   const [postcode, setPostcode] = useState("");
   const [status, setStatus] = useState<"idle"|"loading"|"error"|"confirmed">("idle");
   const [error, setError] = useState("");
-  const [confirmedAddress, setConfirmedAddress] = useState("");
-  const [confirmedPostcode, setConfirmedPostcode] = useState("");
-  type LinzSuggestion = { properties: { full_address?: string; address?: string; postcode?: string } };
-  const [addressSuggestions, setAddressSuggestions] = useState<LinzSuggestion[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [fetchingSuggestions, setFetchingSuggestions] = useState(false);
   const router = useRouter();
 
   const handleConfirm = async (e: React.FormEvent) => {
@@ -29,8 +23,7 @@ export default function CMAHome() {
         setError("Please enter a valid NZ postcode.");
       } else {
         setStatus("confirmed");
-        setConfirmedAddress(address);
-        setConfirmedPostcode(postcode);
+        
         sessionStorage.setItem("cma_address", address);
         sessionStorage.setItem("cma_postcode", postcode);
         setTimeout(() => router.push("/valuation-step2"), 1200);
@@ -55,13 +48,7 @@ export default function CMAHome() {
               value={address}
               onChange={async (e) => {
                 setAddress(e.target.value);
-                setShowSuggestions(true);
-                setFetchingSuggestions(true);
-                // Simulate API call delay
-                setTimeout(() => {
-                  setAddressSuggestions([]);
-                  setFetchingSuggestions(false);
-                }, 500);
+                
               }}
               autoComplete="off"
               required

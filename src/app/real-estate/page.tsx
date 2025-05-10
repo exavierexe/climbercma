@@ -18,7 +18,7 @@ export default function ClimberRealEstate() {
             </div>
             <div className="mb-2">
               <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-bold text-xs mr-2">Mission</span>
-              <span className="text-gray-700 font-semibold">Pay the agency what they're worth!</span>
+              <span className="text-gray-700 font-semibold">Pay the agency what they&apos;re worth!</span>
             </div>
             <div className="mb-4">
               <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-bold text-xs mr-2">Slogan</span>
@@ -105,7 +105,7 @@ export default function ClimberRealEstate() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-orange-50 rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-orange-700 mb-2">North Shore</h3>
-              <p className="text-gray-700">Our team is ready to help you in Auckland's North Shore.</p>
+              <p className="text-gray-700">Our team is ready to help you in Auckland&apos;s North Shore.</p>
             </div>
             <div className="bg-orange-50 rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-orange-700 mb-2">Manukau</h3>

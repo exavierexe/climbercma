@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ContactForm from "./ContactForm";
 
 export default function PropertyEnquiryModal({ open, onClose, propertyTitle }: { open: boolean; onClose: () => void; propertyTitle: string }) {
